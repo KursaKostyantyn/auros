@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,8 +20,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class KnowledgePackageSetDAOImpl implements KnowledgePackageSetDAO {
-    public final JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    @Autowired
+    public KnowledgePackageSetDAOImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public KnowledgePackageSet findKnowledgePackageSetById(int id) {
@@ -29,18 +36,12 @@ public class KnowledgePackageSetDAOImpl implements KnowledgePackageSetDAO {
                 "LEFT JOIN knowledge_package kp on kp.id = kpkps.kPac_id " +
                 "WHERE knowledge_package_set.id=?;";
 
-        return jdbcTemplate.query(sql, new ResultSetExtractor<KnowledgePackageSet>() {
-            @Override
-            public KnowledgePackageSet extractData(ResultSet resultSet) throws SQLException, DataAccessException {
-                return getKnowledgePackageSetList(resultSet).get(0);
-            }
+        return jdbcTemplate.query(sql, resultSet -> {
+            return getKnowledgePackageSetList(resultSet).get(0);
         }, id);
     }
 
-    @Autowired
-    public KnowledgePackageSetDAOImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+
 
 
     @Override

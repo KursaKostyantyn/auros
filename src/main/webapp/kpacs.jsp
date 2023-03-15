@@ -12,7 +12,7 @@
 <a href="/">Home</a> <br>
 
 Create Knowledge Package:
-<form name="knowledgePackage" action="/add_knowledge_package" method="post">
+<form name="knowledgePackage" action="/addKnowledgePackage" method="post">
     <p>Title</p>
     <input title="title" type="text" maxlength="250" name="title" placeholder="title">
     <p>Description</p>
@@ -43,7 +43,7 @@ Create Knowledge Package:
         eventHandlers: {
             onclick: {
                 delete_icon: function (event, data) {
-                    window.location.href = "/delete_knowledge_package/" + data.row.id
+                    window.location.href = "/deleteKnowledgePackage/" + data.row.id
                 }
             }
         },

@@ -9,7 +9,7 @@
 </head>
 <body>
 <a href="/">Home</a>
-<form name="knowledgePackageSet" action="/add_knowledge_package_set" method="post">
+<form name="knowledgePackageSet" action="/addKnowledgePackage_set" method="post">
     <p>Title
     <p>
         <input title="title" type="text" name="title" maxlength="250" placeholder="title"><br>
@@ -37,7 +37,7 @@
         eventHandlers: {
             onclick: {
                 delete_icon: function (event, data) {
-                    window.location.href = "/delete_knowledge_package_set/" + data.row.id
+                    window.location.href = "/deleteKnowledgePackage_set/" + data.row.id
                 }
             }
         },

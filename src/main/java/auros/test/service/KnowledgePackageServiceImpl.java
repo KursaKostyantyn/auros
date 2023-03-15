@@ -9,8 +9,13 @@ import java.util.List;
 
 @Service
 public class KnowledgePackageServiceImpl implements KnowledgePackageService {
+
+    private final KnowledgePackageDAO knowledgePackageDAO;
+
     @Autowired
-    public KnowledgePackageDAO knowledgePackageDAO;
+    public KnowledgePackageServiceImpl(KnowledgePackageDAO knowledgePackageDAO) {
+        this.knowledgePackageDAO = knowledgePackageDAO;
+    }
 
     @Override
     public void saveKnowledgePackage(KnowledgePackage knowledgePackage) {

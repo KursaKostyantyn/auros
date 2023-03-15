@@ -10,9 +10,12 @@ import java.util.List;
 @Service
 public class KnowledgePackageSetServiceImpl implements KnowledgePackageSetService {
 
-    @Autowired
-    public KnowledgePackageSetDAO knowledgePackageSetDAO;
 
+    private final KnowledgePackageSetDAO knowledgePackageSetDAO;
+    @Autowired
+    public KnowledgePackageSetServiceImpl(KnowledgePackageSetDAO knowledgePackageSetDAO) {
+        this.knowledgePackageSetDAO = knowledgePackageSetDAO;
+    }
 
     @Override
     public void saveKnowledgePackageSet(KnowledgePackageSet knowledgePackageSet, String[] ids) {
