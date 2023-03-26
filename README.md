@@ -5,15 +5,15 @@ In the process of developing a control system you’ve received a task to displa
 of the system and their relationship.
 Entities description:
 K-PAC (Knowledge Package) - an entity that stores the contents of any knowledge. It contains
-the next fields:
-● ID - unique numeric field, the occurrence of K-PAC.
-● Title - character string (up to 250 characters)
+the next fields:  
+● ID - unique numeric field, the occurrence of K-PAC.  
+● Title - character string (up to 250 characters)  
 ● Description - character string (up to 2000 characters), information about the contents of
-K-PAC.
-● Creation date - a string in the format DD-MM-YYYY, the date when K-PAC was created.
-K-PAC Set is an entity that can contain multiple K-PAC entities. It contains the next fields:
-● ID - unique numeric field, the occurrence of the K-PAC Set.
-● Title - a character string (up to 250 characters).
+K-PAC.  
+● Creation date - a string in the format DD-MM-YYYY, the date when K-PAC was created.  
+K-PAC Set is an entity that can contain multiple K-PAC entities. It contains the next fields:  
+● ID - unique numeric field, the occurrence of the K-PAC Set.  
+● Title - a character string (up to 250 characters).  
 Entities relations: Every K-PAC set can contain multiple K-PACs, every K-PAC can be included
 in several K-PAC sets.
 Task:
